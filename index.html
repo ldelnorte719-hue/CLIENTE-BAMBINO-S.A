@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Perla del Norte | Experiencia Rural Bambino S.A.</title>
+    
+    <!-- Fuentes Google: Cormorant Garamond, Montserrat y Alex Brush (Caligrafía) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ============================================================
+           VARIABLES Y ESTILO INSPIRADO EN LA PLANTILLA ELEGANTE
+           ============================================================ */
+        :root {
+            --bg-body: #ECE8E1;
+            --bg-card: #F8F5F0;
+            --bg-white: #FFFFFF;
+            --texto-principal: #3A3732;
+            --texto-suave: #7A756E;
+            --acento-verde: #4A5D4E;
+            --acento-dorado: #C2A675;
+            --borde-delicado: #E2DDD5;
+            --fuente-serif: 'Cormorant Garamond', serif;
+            --fuente-sans: 'Montserrat', sans-serif;
+            --fuente-script: 'Alex Brush', cursive;
+            --sombra-suave: 0 12px 30px rgba(58, 55, 50, 0.06);
+            --transicion: all 0.4s ease;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--fuente-sans);
+            background-color: var(--bg-body);
+            color: var(--texto-principal);
+            line-height: 1.6;
+            padding: 40px 15px;
+        }
+
+        .main-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* NAVEGACIÓN SUPERIOR FINA */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px 15px;
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+            border-bottom: 1px solid var(--borde-delicado);
+        }
+
+        .top-nav a {
+            color: var(--texto-suave);
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+
+        .top-nav a:hover {
+            color: var(--acento-verde);
+        }
+
+        /* TARJETA HERO PRINCIPAL */
+        .hero-card {
+            background-color: var(--bg-card);
+            border-radius: 40px;
+            padding: 60px 40px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--borde-delicado);
+        }
+
+        .hero-script-top {
+            font-family: var(--fuente-script);
+            font-size: 32px;
+            color: var(--acento-dorado);
+            margin-bottom: 5px;
+        }
+
+        .hero-kicker {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--acento-verde);
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-title {
+            font-family: var(--fuente-serif);
+            font-size: clamp(38px, 6vw, 62px);
+            font-weight: 400;
+            color: var(--texto-principal);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--texto-suave);
+            margin-bottom: 25px;
+        }
+
+        .hero-img-container {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 30px 0 0;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--acento-verde);
+            color: #FFF;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: var(--transicion);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-pill:hover {
+            background-color: var(--acento-dorado);
+            color: var(--texto-principal);
+            transform: translateY(-2px);
+        }
+
+        /* RESUMEN DE DATOS CLAVE EN 4 COLUMNAS */
+        .details-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid var(--borde-delicado);
+            border-bottom: 1px solid var(--borde-delicado);
+            margin-top: 25px;
+        }
+
+        .details-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .details-col i {
+            color: var(--acento-verde);
+            width: 22px;
+            height: 22px;
+        }
+
+        .details-col .label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--texto-suave);
+        }
+
+        .details-col .val {
+            font-family: var(--fuente-serif);
+            font-size: 16px;
+            color: var(--texto-principal);
+            font-weight: 600;
+        }
+
+        /* TARJETA SECCIÓN CRONOGRAMA (THE DAY) */
+        .section-card {
+            background-color: var(--bg-card);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--borde-delicado);
+        }
+
+        .section-title-head {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title-head h2 {
+            font-family: var(--fuente-serif);
+            font-size: 34px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--texto-principal);
+        }
+
+        .section-title-head p {
+            font-family: var(--fuente-script);
+            font-size: 26px;
+            color: var(--acento-dorado);
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: var(--borde-delicado);
+        }
+
+        .timeline-item i {
+            color: var(--acento-verde);
+            width: 26px;
+            height: 26px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .time {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--acento-verde);
+        }
+
+        .timeline-item .activity {
+            font-family: var(--fuente-serif);
+            font-size: 18px;
+            color: var(--texto-principal);
+            font-weight: 600;
+        }
+
+        .timeline-item .desc {
+            font-size: 12px;
+            color: var(--texto-suave);
+            line-height: 1.4;
+        }
+
+        /* TARJETA DE MENÚ Y ACTIVIDADES (ESTILO DRESS CODE DE LA PLANTILLA) */
+        .info-card-split {
+            background-color: var(--bg-card);
+            border-radius: 30px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--borde-delicado);
+        }
+
+        .split-left h3 {
+            font-family: var(--fuente-serif);
+            font-size: 28px;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            color: var(--texto-principal);
+        }
+
+        .split-left h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--acento-verde);
+            margin-bottom: 15px;
+        }
+
+        .split-left p {
+            font-size: 13px;
+            color: var(--texto-suave);
+            margin-bottom: 20px;
+        }
+
+        .menu-list {
+            list-style: none;
+            font-size: 13px;
+            color: var(--texto-principal);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .menu-list li i {
+            color: var(--acento-dorado);
+            width: 14px;
+            height: 14px;
+            margin-right: 6px;
+        }
+
+        .split-right-img {
+            width: 100%;
+            height: 260px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        /* TABLA DE PRESUPUESTO TRANSPARENTE */
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        .budget-table th, .budget-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--borde-delicado);
+        }
+
+        .budget-table th {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--acento-verde);
+        }
+
+        .budget-table td.amount {
+            font-weight: 600;
+            text-align: right;
+            color: var(--texto-principal);
+        }
+
+        .total-banner {
+            background-color: var(--acento-verde);
+            color: #FFF;
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-banner .total-title {
+            font-family: var(--fuente-serif);
+            font-size: 22px;
+        }
+
+        .total-banner .total-val {
+            font-family: var(--fuente-serif);
+            font-size: 32px;
+            color: var(--acento-dorado);
+            font-weight: 700;
+        }
+
+        /* SECCIÓN RSVP / CONFIRMACIÓN DE ASISTENCIA */
+        .rsvp-card {
+            background-color: var(--bg-card);
+            border-radius: 30px;
+            padding: 45px;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--borde-delicado);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .rsvp-info h3 {
+            font-family: var(--fuente-serif);
+            font-size: 32px;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .rsvp-info p {
+            font-size: 13px;
+            color: var(--texto-suave);
+            margin-bottom: 20px;
+        }
+
+        .rsvp-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            color: var(--texto-suave);
+            text-transform: uppercase;
+        }
+
+        footer .brand {
+            font-family: var(--fuente-serif);
+            font-size: 18px;
+            color: var(--texto-principal);
+            text-transform: none;
+            margin-bottom: 5px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .timeline-grid, .details-bar { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .timeline-item:not(:last-child)::after { display: none; }
+            .info-card-split, .rsvp-card { grid-template-columns: 1fr; }
+            .hero-card { padding: 40px 20px; }
+            .top-nav { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+
+        <!-- NAVEGACIÓN SUPERIOR ESTILO CARTA -->
+        <nav class="top-nav">
+            <div>LA PERLA DEL NORTE</div>
+            <div><a href="#programa">PROGRAMA</a> &nbsp;•&nbsp; <a href="#menu">MENÚ & ACTIVIDADES</a> &nbsp;•&nbsp; <a href="#presupuesto">PRESUPUESTO</a></div>
+            <div>BAMBINO S.A.</div>
+        </nav>
+
+        <!-- HÉROE PRINCIPAL ESTILO INVITACIÓN -->
+        <header class="hero-card">
+            <div class="hero-script-top">Jornada de Convivencia & Naturaleza</div>
+            <span class="hero-kicker">PROPUESTA CORPORATIVA EXCLUSIVA</span>
+            <h1 class="hero-title">Bambino S.A. en Cantabria</h1>
+            <div class="hero-subtitle">SÁBADO O DOMINGO &nbsp;•&nbsp; VALLE DE CABUÉRNIGA & LIÉBANA</div>
+            
+            <a href="#presupuesto" class="btn-pill">VER PRESUPUESTO FINAL &nbsp;›</a>
+
+            <div class="hero-img-container">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Paisaje de Cantabria">
+            </div>
+
+            <!-- DETALLES CLAVE -->
+            <div class="details-bar">
+                <div class="details-col">
+                    <i data-lucide="users"></i>
+                    <span class="label">GRUPO</span>
+                    <span class="val">50 Empleados</span>
+                </div>
+                <div class="details-col">
+                    <i data-lucide="calendar"></i>
+                    <span class="label">FECHA</span>
+                    <span class="val">Sábado o Domingo</span>
+                </div>
+                <div class="details-col">
+                    <i data-lucide="bus"></i>
+                    <span class="label">TRANSPORTE</span>
+                    <span class="val">Autocar VIP 54 Plazas</span>
+                </div>
+                <div class="details-col">
+                    <i data-lucide="utensils"></i>
+                    <span class="label">GASTRONOMÍA</span>
+                    <span class="val">Menú Cántabro Completo</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- SECCIÓN DE CRONOGRAMA (THE DAY) -->
+        <section class="section-card" id="programa">
+            <div class="section-header-jp section-title-head">
+                <h2>EL PROGRAMA</h2>
+                <p>Un día de relax, tradición y equipo</p>
+            </div>
+
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <i data-lucide="bus"></i>
+                    <span class="time">08:30 AM</span>
+                    <span class="activity">SALIDA VIP</span>
+                    <span class="desc">Recogida en sede Bambino S.A. en autocar privado.</span>
+                </div>
+                <div class="timeline-item">
+                    <i data-lucide="trophy"></i>
+                    <span class="time">10:00 AM</span>
+                    <span class="activity">GYMKANA RURAL</span>
+                    <span class="desc">Juegos tradicionales cántabros y visita con cata a quesería.</span>
+                </div>
+                <div class="timeline-item">
+                    <i data-lucide="utensils-crossed"></i>
+                    <span class="time">02:00 PM</span>
+                    <span class="activity">ALMUERZO TÍPICO</span>
+                    <span class="desc">Cocido montañés, carnes a la leña y postres caseros.</span>
+                </div>
+                <div class="timeline-item">
+                    <i data-lucide="sun"></i>
+                    <span class="time">06:30 PM</span>
+                    <span class="activity">REGRESO</span>
+                    <span class="desc">Sobremesa, entrega de recuerdos y viaje de retorno.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN MENÚ Y ACTIVIDADES (ESTILO DRESS CODE DE LA PLANTILLA) -->
+        <section class="info-card-split" id="menu">
+            <div class="split-left">
+                <h3>GASTRONOMÍA RURAL</h3>
+                <h4>Menú Cántabro Tradicional</h4>
+                <p>Reservado en exclusiva en un asador típico cántabro con ingredientes locales de primera calidad:</p>
+
+                <ul class="menu-list">
+                    <li><i data-lucide="check"></i> <strong>Entrantes:</strong> Tabla de quesos D.O., cecina, embutidos y rabas.</li>
+                    <li><i data-lucide="check"></i> <strong>Primer Plato:</strong> Cocido Montañés artesanal con compango.</li>
+                    <li><i data-lucide="check"></i> <strong>Segundo Plato:</strong> Lechazo asado a la leña o Solomillo tudanco.</li>
+                    <li><i data-lucide="check"></i> <strong>Postre & Bodega:</strong> Quesada pasiega, sobaos, vinos D.O. u orujo.</li>
+                </ul>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Comida Rural" class="split-right-img">
+        </section>
+
+        <!-- SECCIÓN DE PRESUPUESTO TRANSPARENTE -->
+        <section class="section-card" id="presupuesto">
+            <div class="section-title-head">
+                <h2>PRESUPUESTO TRANSPARENTE</h2>
+                <p>Desglose para Bambino S.A.</p>
+            </div>
+
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Concepto / Servicio</th>
+                        <th>Por Empleado</th>
+                        <th style="text-align: right;">Total Grupo (50 pers.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Autocar VIP privado + Chófer (Día completo)</td>
+                        <td>16 €</td>
+                        <td class="amount">800 €</td>
+                    </tr>
+                    <tr>
+                        <td>Experiencia Rural, Gymkana y Cata en Quesería</td>
+                        <td>22 €</td>
+                        <td class="amount">1.100 €</td>
+                    </tr>
+                    <tr>
+                        <td>Menú Gastronómico Completo (Asador Rural)</td>
+                        <td>42 €</td>
+                        <td class="amount">2.100 €</td>
+                    </tr>
+                    <tr>
+                        <td>Guía acompañante, Seguros y Obsequio final</td>
+                        <td>10 €</td>
+                        <td class="amount">500 €</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subtotal Tarifa Oficial</strong></td>
+                        <td><strong>90 €</strong></td>
+                        <td class="amount"><strong>4.500 €</strong></td>
+                    </tr>
+                    <tr style="color: var(--acento-verde); font-weight: 600;">
+                        <td>Descuento Especial Grupo Empresa (-10%)</td>
+                        <td>-9 €</td>
+                        <td class="amount">-450 €</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="total-banner">
+                <div>
+                    <div class="total-title">PRECIO NETO FINAL (50 EMPLEADOS)</div>
+                    <div style="font-size: 12px; opacity: 0.8;">IVA incluido &nbsp;•&nbsp; 81 € por persona</div>
+                </div>
+                <div class="total-val">4.050 €</div>
+            </div>
+        </section>
+
+        <!-- CONFIRMACIÓN Y RESERVA (RSVP) -->
+        <section class="rsvp-card">
+            <div class="rsvp-info">
+                <h3>CONFIRMACIÓN</h3>
+                <p>¿Listos para ofrecer una jornada inolvidable a vuestro equipo de Bambino S.A.?</p>
+                <button class="btn-pill" onclick="confirmar()">CONFIRMAR PROPUESTA &nbsp;›</button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Celebración" class="rsvp-img">
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="brand">La Perla del Norte</div>
+            <div>Paseo de Pereda, 15, Santander &nbsp;•&nbsp; +34 942 55 66 77</div>
+            <div style="margin-top: 10px;">&copy; 2026 Todos los derechos reservados</div>
+        </footer>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function confirmar() {
+            alert("¡Gracias por confirmar! El equipo de La Perla del Norte contactará con Bambino S.A. para coordinar la fecha final (Sábado o Domingo).");
+        }
+    </script>
+</body>
+</html>
